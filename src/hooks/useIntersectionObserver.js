@@ -1,9 +1,5 @@
 import { useEffect, useRef } from 'react'
 
-/**
- * @param {Array<{ ref: React.RefObject, animClass: string, delay?: number }>} items
- * @param {IntersectionObserverInit} options
- */
 
 export function useIntersectionObserver(items, options = { threshold: 0.1 }) {
   useEffect(() => {
@@ -17,6 +13,7 @@ export function useIntersectionObserver(items, options = { threshold: 0.1 }) {
       })
     }, options)
 
+    
 
     items.forEach(({ ref, animClass, delay }) => {
       const el = ref.current
@@ -32,11 +29,6 @@ export function useIntersectionObserver(items, options = { threshold: 0.1 }) {
   }, [])
 }
 
-
-/**
- * @param {'fade-up'|'fade-left'|'fade-right'} animClass
- * @param {IntersectionObserverInit} options
- */
 
 
 export function useScrollAnimation(animClass = 'fade-up', options = { threshold: 0.1 }) {
